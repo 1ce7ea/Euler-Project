@@ -5,27 +5,30 @@ var primes = [2],
 
 largestPrimeFactor = function (someNumber) {
 
-  while (someNumber % 2 === 0) {
-	//console.log(someNumber + ' ' + primes[j]);
-	someNumber /= 2;
-  }
+	while (someNumber % 2 === 0) {
+		someNumber /= 2;
+		console.log("divided by 2 - it's now: " + someNumber);
+	}
 
-  for (i; i*2 <= someNumber; i += 2) {
-
-        for (j = 0; primes[j] < i/2; j++) {
-			//console.log('check ' + i + ' divided by ' + primes[j] + ' - primes length is ' + primes.length);
+	for (i; i <= someNumber/2; i += 2) {
+		for (j = 0; primes[j] < i/2; j++) {
+			console.log('check ' + i + ' divided by ' + primes[j]);
 			if (i % primes[j] === 0) {
 				isPrime = false;
+				console.log(i + " is NOT prime" );
 			} else {
 				isPrime = true;
+				console.log(i + " is prime" );
 			}
+			console.log("prime? " + i);
 		}
 		
 		if (isPrime) {
-			while (someNumber % primes[j] === 0) {
-				//console.log(someNumber + ' ' + primes[j]);
-				someNumber /= primes[j];
-				if (someNumber === primes[j]) {
+			while (someNumber % i === 0) {
+				console.log(someNumber + " at 4 when i is " + i + " and j is " + j);
+				someNumber /= i;
+				console.log(someNumber + " at 5 when i is" + i);
+				if (someNumber === i) {
 					return someNumber;
 				}
 			}
@@ -33,9 +36,9 @@ largestPrimeFactor = function (someNumber) {
 			primes.push(i);
 		}
 	}
-
-  return someNumber;
+	console.log(someNumber + " at 6 when i is" + i);
+	return someNumber;
 };
 
-largestPrimeFactor(243);
+largestPrimeFactor(200);
 //console.log(primes);
