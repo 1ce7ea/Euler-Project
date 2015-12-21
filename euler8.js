@@ -5,18 +5,20 @@ function largestArray (x,y) {
 		result = 1,
 		i = 0,
 		j = 0,
-		selection = someNumber.slice(i,i+span),
+		selection,
 		finalResult = 0;
 		
 	for (i; i < someNumber.length - (span-1); i++) {
-		
+		selection = someNumber.slice(i,i+span)
 		if (!selection.match(0)) {
 			for (j; j < selection.length; j++) {
 				result *= selection[j];
-				if (result > finalResult) {
-					finalResult = result;
-				}
 			}
+			if (result > finalResult) {
+					finalResult = result;
+			}
+      result = 1;
+			j = 0;
 		}
 	}
 	return finalResult;
