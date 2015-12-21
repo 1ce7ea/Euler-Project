@@ -17,7 +17,7 @@ function largestArray (x,y) {
 			if (result > finalResult) {
 					finalResult = result;
 			}
-      result = 1;
+	      		result = 1;
 			j = 0;
 		}
 	}
